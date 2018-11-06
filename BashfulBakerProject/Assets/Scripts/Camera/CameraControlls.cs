@@ -34,8 +34,7 @@ public class CameraControlls : MonoBehaviour {
 	void Start () {
         targetPanDestination = player.transform.position;
 
-        //panCamera(new Vector3(10, 0, 0),5);
-        snapToPlayer(true, true);
+        //snapToPlayer(true, true);
 	}
 	
 	// Update is called once per frame
@@ -63,7 +62,8 @@ public class CameraControlls : MonoBehaviour {
                 // Set our position as a fraction of the distance between the markers.
                 offset = Vector3.Lerp(player.transform.position, targetPanDestination, fracJourney);
 
-                if (fracJourney == 1.00f)
+                Debug.Log(fracJourney);
+                if (fracJourney >= 1.00f)
                 {
                     panningCamera = false;
                 }
@@ -76,11 +76,13 @@ public class CameraControlls : MonoBehaviour {
                 // Fraction of journey completed = current distance divided by total distance.
                 float fracJourney = distCovered / Vector3.Distance(targetPanDestination, player.gameObject.transform.position);
 
+               
+
                 // Set our position as a fraction of the distance between the markers.
                 this.transform.position = Vector3.Lerp(targetPanDestination, player.transform.position+Vector3.back, fracJourney);
                 
 
-                if (fracJourney == 1.00f)
+                if (fracJourney >= 1.00f)
                 {
                     panningCamera = false;
                     snapToPlayer(true, false);
@@ -136,6 +138,7 @@ public class CameraControlls : MonoBehaviour {
     /// <param name="speed">The move speed for the panning. If panPlayer=false then this value is ignored.</param>
     public void snapToPlayer(bool resetOffset = true,bool panPlayer=false,bool followPlayer=true,float speed=1f)
     {
+        Debug.Log("SNAP");
         if (resetOffset)
         {
             offset = new Vector3();
