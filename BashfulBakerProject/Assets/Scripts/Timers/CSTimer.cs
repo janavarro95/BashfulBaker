@@ -16,6 +16,24 @@ namespace Assets.Scripts.Timers
         public Timer timer;
 
         /// <summary>
+        /// Used to keep track of the values set for the timer so that it can be reset.
+        /// </summary>
+        private int _numberOfMilliseconds;
+        private bool _autoRestart;
+        private ElapsedEventHandler _event;
+
+        /// <summary>
+        /// Property to wrap number of milliseconds for this timer.
+        /// </summary>
+        public int numberofMilliseconds
+        {
+            get
+            {
+                return _numberOfMilliseconds;
+            }
+        }
+
+        /// <summary>
         /// Constructor.
         /// </summary>
         /// <param name="NumberOfMilliseconds">Number of milliseconds until the timer finishes.</param>
@@ -26,6 +44,9 @@ namespace Assets.Scripts.Timers
             timer = new Timer(NumberOfMilliseconds);
             timer.Elapsed += OnFinished;
             timer.AutoReset = AutoRestart;
+            this._numberOfMilliseconds = NumberOfMilliseconds;
+            this._autoRestart = AutoRestart;
+            this._event = OnFinished;
         }
 
         /// <summary>
@@ -42,6 +63,27 @@ namespace Assets.Scripts.Timers
         public void stop()
         {
             timer.Stop();
+        }
+
+        /// <summary>
+        /// Restart the timer and make it enabled.
+        /// </summary>
+        public void restart()
+        {
+            timer = new Timer(numberofMilliseconds);
+            timer.Elapsed += _event;
+            timer.AutoReset = _autoRestart;
+            timer.Start();
+        }
+
+        /// <summary>
+        /// Reset the timer but leave it disabled.
+        /// </summary>
+        public void reset()
+        {
+            timer = new Timer(numberofMilliseconds);
+            timer.Elapsed += _event;
+            timer.AutoReset = _autoRestart;
         }
 
     }

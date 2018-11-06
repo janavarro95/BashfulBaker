@@ -8,6 +8,14 @@ namespace Assets.Scripts.GameInput
 {
     public class InputControls:MonoBehaviour
     {
+
+        public enum ControllerType
+        {
+            Keyboard,
+            XBox,
+            DualShock
+        }
+
         /// <summary>
         /// Property to check if the "A" button is pressed.
         /// </summary>
@@ -15,7 +23,18 @@ namespace Assets.Scripts.GameInput
         {
             get
             {
-                return Input.GetButtonDown("Fire1");
+                if (getControllerType() == ControllerType.DualShock)
+                {
+                    return Input.GetButtonDown("Fire1");
+                }
+                else if (getControllerType() == ControllerType.XBox)
+                {
+                    return Input.GetButtonDown("Fire1");
+                }
+                else
+                {
+                    return Input.GetButtonDown("Fire1");
+                }
             }
         }
 
@@ -26,7 +45,18 @@ namespace Assets.Scripts.GameInput
         {
             get
             {
-                return Input.GetButtonDown("Fire2");
+                if (getControllerType() == ControllerType.DualShock)
+                {
+                    return Input.GetButtonDown("Fire2");
+                }
+                else if (getControllerType() == ControllerType.XBox)
+                {
+                    return Input.GetButtonDown("Fire2");
+                }
+                else
+                {
+                    return Input.GetButtonDown("Fire2");
+                }
             }
         }
 
@@ -37,7 +67,18 @@ namespace Assets.Scripts.GameInput
         {
             get
             {
-                return Input.GetButtonDown("Fire3");
+                if (getControllerType() == ControllerType.DualShock)
+                {
+                    return Input.GetButtonDown("Fire3");
+                }
+                else if(getControllerType() == ControllerType.XBox)
+                {
+                    return Input.GetButtonDown("Fire3");
+                }
+                else
+                {
+                    return Input.GetButtonDown("Fire3");
+                }
             }
         }
 
@@ -47,8 +88,19 @@ namespace Assets.Scripts.GameInput
         public static bool YPressed
         {
             get
-            {
-                return Input.GetButtonDown("Fire4");
+            {             
+                if (getControllerType() == ControllerType.DualShock)
+                {
+                    return Input.GetButtonDown("Fire4");
+                }
+                else if (getControllerType() == ControllerType.XBox)
+                {
+                    return Input.GetButtonDown("Fire4");
+                }
+                else
+                {
+                    return Input.GetButtonDown("Fire4");
+                }
             }
         }
 
@@ -104,6 +156,33 @@ namespace Assets.Scripts.GameInput
             get
             {
                 return Input.GetButtonDown("RightBummper");
+            }
+        }
+
+        /// <summary>
+        /// USed to determine if the user is using a PS3 or XBox controller so that buttons can be mapped properly to inputs.
+        /// </summary>
+        /// <returns></returns>
+        public static ControllerType getControllerType()
+        {
+            try
+            {
+                if (Input.GetJoystickNames().ElementAt(0).Contains("DualShock".ToLower()))
+                {
+                    return ControllerType.DualShock;
+                }
+                else if (Input.GetJoystickNames().ElementAt(0).Contains("XBox".ToLower()))
+                {
+                    return ControllerType.XBox;
+                }
+                else
+                {
+                    return ControllerType.Keyboard;
+                }
+            }
+            catch(Exception err)
+            {
+                return ControllerType.Keyboard;
             }
         }
 

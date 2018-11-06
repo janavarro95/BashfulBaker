@@ -6,13 +6,34 @@ using UnityEngine;
 /// <summary>
 /// Deals with player controls and movement.
 /// </summary>
-/// 
 public class CharacterController2D : MonoBehaviour {
 
     /// <summary>
     /// The player's movespeed.
     /// </summary>
     public float moveSpeed=0.05f;
+
+    /// <summary>
+    /// Enum to handle player facing direction.
+    /// </summary>
+    public enum FacingDirection
+    {
+        Up,
+        Right,
+        Down,
+        Left
+    }
+
+    /// <summary>
+    /// The direction the player is facing.
+    /// </summary>
+    public FacingDirection facingDirection;
+
+
+    /// <summary>
+    /// If the player can move or not.
+    /// </summary>
+    public bool canMove;
 
     /// <summary>
     /// Returns a vector for the player's most recent movement.
@@ -22,14 +43,15 @@ public class CharacterController2D : MonoBehaviour {
         get
         {
             Vector2 input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-            return (new Vector3(input.x, input.y, 0f) * moveSpeed);
+            return (new Vector3(input.x, input.y, 0f) * moveSpeed*movementModifier());
         }
     }
 
 
     // Use this for initialization
     void Start () {
-		
+        this.canMove = true;
+        this.facingDirection = FacingDirection.Down;
 	}
 	
 	// Update is called once per frame
@@ -61,5 +83,24 @@ public class CharacterController2D : MonoBehaviour {
     public void setPositon(Vector3 position)
     {
         this.gameObject.transform.position += position;
+    }
+
+    /// <summary>
+    /// The direction of the sprite to face.
+    /// </summary>
+    /// <param name="direction"></param>
+    public void faceDirection(FacingDirection direction)
+    {
+        this.facingDirection = direction;
+    }
+
+    /// <summary>
+    /// Movement modifier function that determines speed/can move/etc.
+    /// </summary>
+    /// <returns></returns>
+    private float movementModifier()
+    {
+        if (canMove == false) return 0.0f;
+        return 1.0f;
     }
 }

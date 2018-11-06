@@ -15,7 +15,6 @@ namespace Assets.Scripts.Timers
         /// </summary>
         public CSTimer timer;
 
-
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -49,14 +48,36 @@ namespace Assets.Scripts.Timers
             this.decrementCoolDown();
         }
 
+        /// <summary>
+        /// Start the timer.
+        /// </summary>
         public void start()
         {
             this.timer.start();
         }
 
+        /// <summary>
+        /// Stop the timer.
+        /// </summary>
         public void stop()
         {
             this.timer.stop();
+        }
+
+        /// <summary>
+        /// Restart the cooldown and start counting down.
+        /// </summary>
+        public void restart()
+        {
+            this.timer.restart();
+        }
+
+        /// <summary>
+        /// Reset the cooldown but leave it disabled.
+        /// </summary>
+        public void reset()
+        {
+            this.timer.reset();
         }
 
     }

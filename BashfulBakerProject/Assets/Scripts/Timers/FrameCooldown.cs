@@ -15,6 +15,10 @@ namespace Assets.Scripts.Timers
         /// </summary>
         public FrameTimer timer;
 
+        /// <summary>
+        /// Used to determined if the timer is currently enabled or not.
+        /// </summary>
+        public bool enabled;
 
         /// <summary>
         /// Constructor.
@@ -45,7 +49,14 @@ namespace Assets.Scripts.Timers
         /// </summary>
         public override void tick()
         {
-            this.timer.tick();
+            if (this.enabled)
+            {
+                this.timer.tick();
+            }
+            else
+            {
+                return;
+            }
         }
 
         /// <summary>
@@ -54,6 +65,40 @@ namespace Assets.Scripts.Timers
         public void Update()
         {
             tick();
+        }
+
+        /// <summary>
+        /// Start/Enable the frame timer.
+        /// </summary>
+        public void start()
+        {
+            this.enabled = true;
+        }
+
+        /// <summary>
+        /// Stop the frame timer.
+        /// </summary>
+        public void stop()
+        {
+            this.enabled = false;
+        }
+
+        /// <summary>
+        /// Restart the frame timer to it's initial values and enables it.
+        /// </summary>
+        public void restart()
+        {
+            this.timer = new FrameTimer(this.timer.maxLifespan, this.decrementCoolDown, true);
+            this.enabled = true;
+        }
+
+        /// <summary>
+        /// Resets the frame timer to it's initial values but has it disabled.
+        /// </summary>
+        public void reset()
+        {
+            this.timer = new FrameTimer(this.timer.maxLifespan, this.decrementCoolDown, true);
+            this.enabled = false;
         }
 
     }
