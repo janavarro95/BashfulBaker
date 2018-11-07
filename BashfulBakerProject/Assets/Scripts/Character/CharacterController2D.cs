@@ -1,4 +1,6 @@
-﻿using Assets.Scripts.GameInput;
+﻿using Assets.Scripts;
+using Assets.Scripts.GameInput;
+using Assets.Scripts.Objects;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -35,6 +37,17 @@ public class CharacterController2D : MonoBehaviour {
     /// </summary>
     public bool canMove;
 
+
+    public bool holdingFood {
+
+        get
+        {
+            if (heldFood == null) return false;
+            else return true;
+        }
+    }
+    public Food heldFood;
+
     /// <summary>
     /// Returns a vector for the player's most recent movement.
     /// </summary>
@@ -52,6 +65,8 @@ public class CharacterController2D : MonoBehaviour {
     void Start () {
         this.canMove = true;
         this.facingDirection = FacingDirection.Down;
+
+        this.heldFood = GameManager.getGameManager().getFood("Cookie");
 	}
 	
 	// Update is called once per frame

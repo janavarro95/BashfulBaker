@@ -33,6 +33,7 @@ namespace Assets.Scripts.GameInput
                 }
                 else
                 {
+                    
                     return Input.GetButtonDown("Fire1");
                 }
             }

@@ -19,6 +19,15 @@ namespace Assets.Scripts.Timers
         /// </summary>
         public double decrementAmount;
 
+        public double timeRemaining
+        {
+            get
+            {
+                double rounded = Math.Round(value);
+                return rounded;
+            }
+        }
+
         /// <summary>
         /// Constructor.
         /// </summary>
