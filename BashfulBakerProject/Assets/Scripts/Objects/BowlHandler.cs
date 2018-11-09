@@ -12,10 +12,20 @@ namespace Assets.Scripts.Objects
 
         private bool playerEntered;
 
+        public enum BowlState
+        {
+            notMixing,
+            currentlyMixing
+        }
+
+        public BowlState currentState;
+
+        public GameObject player;
 
         // Use this for initialization
         void Start()
         {
+            currentState = BowlState.notMixing;
 
         }
 
@@ -27,8 +37,20 @@ namespace Assets.Scripts.Objects
             {
                 if (InputControls.APressed)
                 {
-                    Debug.Log("MIX THE MIX");
-                    //START BOWL MINIGAME...
+                    CharacterController2D character = GameManager.getPlayer().GetComponent<CharacterController2D>();
+                    if (this.currentState == BowlState.notMixing){
+                        
+                            Debug.Log("MIX THE MIX");
+                            //START BOWL MINIGAME...
+                            playMinigame();
+                        
+                        
+                        character.heldFood = GameManager.getGameManager().getFood("Cookie");
+                    }
+                    else{
+                        Debug.Log("YOU CAN'T MIX WHAT IS ALREADY MIXED");
+                    }
+                    
                 }
             }
 
@@ -57,6 +79,12 @@ namespace Assets.Scripts.Objects
                 playerEntered = false;
             }
 
+        }
+
+        private void playMinigame()
+        {
+            this.currentState = BowlState.currentlyMixing;
+            
         }
     }
 }

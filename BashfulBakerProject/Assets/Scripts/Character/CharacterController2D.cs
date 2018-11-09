@@ -66,7 +66,6 @@ public class CharacterController2D : MonoBehaviour {
         this.canMove = true;
         this.facingDirection = FacingDirection.Down;
 
-        this.heldFood = GameManager.getGameManager().getFood("Cookie");
 	}
 	
 	// Update is called once per frame
