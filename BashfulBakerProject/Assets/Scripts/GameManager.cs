@@ -25,7 +25,7 @@ namespace Assets.Scripts
                 {
                     Food obj= Instantiate(nom);
                     obj.transform.parent = getPlayer().transform;
-                    obj.transform.position = new Vector3(2.2f, 4.2f, -5);
+                    obj.transform.localPosition = new Vector3(0.0f, 1.0f, 0);
                     return obj;
                 }
             }

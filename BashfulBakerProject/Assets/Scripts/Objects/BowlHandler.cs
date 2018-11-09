@@ -46,6 +46,7 @@ namespace Assets.Scripts.Objects
                         
                         
                         character.heldFood = GameManager.getGameManager().getFood("Cookie");
+                        //character.heldFood.attatchToPlayer();
                     }
                     else{
                         Debug.Log("YOU CAN'T MIX WHAT IS ALREADY MIXED");
