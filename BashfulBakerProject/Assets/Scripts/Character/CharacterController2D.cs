@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts;
+using Assets.Scripts.Character;
 using Assets.Scripts.GameInput;
 using Assets.Scripts.Objects;
 using System.Collections;
@@ -10,44 +11,8 @@ using UnityEngine;
 /// </summary>
 public class CharacterController2D : MonoBehaviour {
 
-    /// <summary>
-    /// The player's movespeed.
-    /// </summary>
-    public float moveSpeed=0.05f;
 
-    /// <summary>
-    /// Enum to handle player facing direction.
-    /// </summary>
-    public enum FacingDirection
-    {
-        Up,
-        Right,
-        Down,
-        Left
-    }
-
-    /// <summary>
-    /// The direction the player is facing.
-    /// </summary>
-    public FacingDirection facingDirection;
-
-
-    /// <summary>
-    /// If the player can move or not.
-    /// </summary>
-    public bool canMove;
-
-
-    public bool holdingFood {
-
-        get
-        {
-            if (heldFood == null) return false;
-            else return true;
-        }
-    }
-    public Food heldFood;
-
+    public Player info;
     /// <summary>
     /// Returns a vector for the player's most recent movement.
     /// </summary>
@@ -56,15 +21,16 @@ public class CharacterController2D : MonoBehaviour {
         get
         {
             Vector2 input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-            return (new Vector3(input.x, input.y, 0f) * moveSpeed*movementModifier());
+            return (new Vector3(input.x, input.y, 0f) * info.moveSpeed*movementModifier());
         }
     }
 
 
     // Use this for initialization
     void Start () {
-        this.canMove = true;
-        this.facingDirection = FacingDirection.Down;
+        info = new Player();
+        info.canMove = true;
+        info.facingDirection = Player.FacingDirection.Down;
 
 	}
 	
@@ -103,9 +69,9 @@ public class CharacterController2D : MonoBehaviour {
     /// The direction of the sprite to face.
     /// </summary>
     /// <param name="direction"></param>
-    public void faceDirection(FacingDirection direction)
+    public void faceDirection(Player.FacingDirection direction)
     {
-        this.facingDirection = direction;
+        info.facingDirection = direction;
     }
 
     /// <summary>
@@ -114,7 +80,7 @@ public class CharacterController2D : MonoBehaviour {
     /// <returns></returns>
     private float movementModifier()
     {
-        if (canMove == false) return 0.0f;
+        if (info.canMove == false) return 0.0f;
         return 1.0f;
     }
 }

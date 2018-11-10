@@ -46,20 +46,20 @@ namespace Assets.Scripts.Objects {
                 {
                     CharacterController2D character = player.GetComponent<CharacterController2D>();
 
-                    if (character.holdingFood && this.currentState== OvenState.Idle && character.heldFood.currentState!= Food.CookedState.Cooked)
+                    if (character.info.holdingFood && this.currentState== OvenState.Idle && character.info.heldFood.currentState!= Food.CookedState.Cooked)
                     {
-                        timer = new TimedCooldown(100, character.heldFood.timeToCook, 0.1);
+                        timer = new TimedCooldown(100, character.info.heldFood.timeToCook, 0.1);
                         timer.start();
 
-                        this.heldFood = Instantiate(character.heldFood); //REPLACE WITH SOME FOOD RECIPE FUNCTION LATER;
+                        this.heldFood = Instantiate(character.info.heldFood); //REPLACE WITH SOME FOOD RECIPE FUNCTION LATER;
                         this.heldFood.gameObject.SetActive(false);
-                        Destroy(character.heldFood.gameObject);
-                        character.heldFood = null;
+                        Destroy(character.info.heldFood.gameObject);
+                        character.info.heldFood = null;
                         
 
                         this.currentState = OvenState.Cooking;
                     }
-                    else if(character.holdingFood==false && this.currentState== OvenState.DoneCooking)
+                    else if(character.info.holdingFood==false && this.currentState== OvenState.DoneCooking)
                     {
                         this.heldFood.gameObject.SetActive(true);
                         Food nom = Instantiate(this.heldFood);

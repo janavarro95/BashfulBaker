@@ -45,7 +45,7 @@ namespace Assets.Scripts.Objects
                             playMinigame();
                         
                         
-                        character.heldFood = GameManager.getGameManager().getFood("Cookie");
+                        character.info.heldFood = GameManager.getGameManager().getFood("Cookie");
                         //character.heldFood.attatchToPlayer();
                     }
                     else{
