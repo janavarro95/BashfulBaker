@@ -42,5 +42,10 @@ namespace Assets.Scripts
             return GameObject.Find("GameManager").GetComponent<GameManager>();
         }
 
+        public static GameObject getObjectFromScene(string name)
+        {
+            return GameObject.Find(name);
+        }
+
     }
 }
