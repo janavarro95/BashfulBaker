@@ -20,6 +20,13 @@ namespace Assets.Scripts.Minigames.MinigameActions
 
         }
 
+        public CollisionAction(string targetTag)
+        {
+            this.collider = new CollisionChecker();
+            this.collider.tag = targetTag;
+        }
+
+
         public CollisionAction(GameObject target)
         {
             this.collider = target.GetComponent<CollisionChecker>();

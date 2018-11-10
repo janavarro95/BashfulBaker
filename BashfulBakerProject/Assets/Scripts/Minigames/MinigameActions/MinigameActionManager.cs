@@ -11,7 +11,7 @@ namespace Assets.Scripts.Minigames.MinigameActions
     /// 
     /// Put this on a minigame and update it inside the minigame.
     /// </summary>
-    public class MinigameActionManager
+    public class MinigameActionManager:MonoBehaviour
     {
         /// <summary>
         /// A queue of all of the actions necessary to complete the minigame.
@@ -40,8 +40,17 @@ namespace Assets.Scripts.Minigames.MinigameActions
             }
         }
 
-        public EventHandler onFinished;
 
+        public void Start()
+        {
+            this.actions = new List<MinigameAction>();
+            this.currentActionIndex = 0;
+            ButtonSequenceAction action = new ButtonSequenceAction();
+            action.addButton(new ButtonPressedAction(ButtonMashAction.ButtonToMash.A));
+            action.addButton(new ButtonPressedAction(ButtonMashAction.ButtonToMash.X));
+            action.addButton(new ButtonPressedAction(ButtonMashAction.ButtonToMash.Y));
+            this.actions.Add(action);
+        }
 
         /// <summary>
         /// Empty constructor.
@@ -50,6 +59,11 @@ namespace Assets.Scripts.Minigames.MinigameActions
         {
             this.actions = new List<MinigameAction>();
             this.currentActionIndex = 0;
+            ButtonSequenceAction action = new ButtonSequenceAction();
+            action.addButton(new ButtonPressedAction(ButtonMashAction.ButtonToMash.A));
+            action.addButton(new ButtonPressedAction(ButtonMashAction.ButtonToMash.X));
+            action.addButton(new ButtonPressedAction(ButtonMashAction.ButtonToMash.Y));
+            this.actions.Add(action);
             //this.actions.Add(new CollisionAction(GameManager.getObjectFromScene("DummyCookie")));
         }
 
@@ -107,10 +121,15 @@ namespace Assets.Scripts.Minigames.MinigameActions
             {
                 (currentAction as ButtonMashAction).checkForUpdate();
             }
+            if(currentAction is ButtonSequenceAction)
+            {
+                (currentAction as ButtonSequenceAction).checkForUpdate();
+            }
         }
 
         public void Update()
         {
+            checkForUpdate();
             if (currentActionFinished())
             {
                 nextActionIfFinished();
