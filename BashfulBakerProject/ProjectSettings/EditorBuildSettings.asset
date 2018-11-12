@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Kitchen.unity
     guid: a849efa9144b9ab49b20931d0fb7c71c
+  - enabled: 1
+    path: Assets/Scenes/outdoor-environment.unity
+    guid: e910d738e73b58f4a9b1beb9a945ba08
   m_configObjects: {}

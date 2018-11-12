@@ -13,6 +13,7 @@ public class CharacterController2D : MonoBehaviour {
 
 
     public Player info;
+
     /// <summary>
     /// Returns a vector for the player's most recent movement.
     /// </summary>
@@ -26,12 +27,13 @@ public class CharacterController2D : MonoBehaviour {
     }
 
 
-    // Use this for initialization
+    // Use info for initialization
     void Start () {
         info = new Player();
         info.canMove = true;
         info.facingDirection = Player.FacingDirection.Down;
 
+        //info.heldFood = GameManager.getGameManager().getFood("Cookie");
 	}
 	
 	// Update is called once per frame
