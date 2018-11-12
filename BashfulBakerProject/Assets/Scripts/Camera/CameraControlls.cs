@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using Assets.Scripts;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,7 +12,7 @@ public class CameraControlls : MonoBehaviour {
 
     public bool followPlayer;
 
-    public GameObject player;
+    private GameObject player;
     // Use this for initialization
 
     public Vector3 offset;
@@ -31,17 +33,29 @@ public class CameraControlls : MonoBehaviour {
 
     public PanType panType;
 
-	void Start () {
+	void Start () {      
+        this.player = GameManager.getPlayer();
         targetPanDestination = player.transform.position;
-
         //snapToPlayer(true, true);
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        if (followPlayer)
+
+        if (this.player == null)
         {
-            this.gameObject.transform.position = player.transform.position + offset + Vector3.back;
+            this.player = GameManager.getPlayer();
+        }
+        try
+        {
+            if (followPlayer)
+            {
+                this.gameObject.transform.position = player.transform.position + offset + Vector3.back;
+            }
+        }
+        catch(Exception err)
+        {
+
         }
         panCamera();
     }
