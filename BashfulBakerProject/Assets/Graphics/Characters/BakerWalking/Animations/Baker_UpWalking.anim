@@ -5,9 +5,9 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Baker_RightWalking
+  m_Name: Baker_UpWalking
   serializedVersion: 6
-  m_Legacy: 0
+  m_Legacy: 1
   m_Compressed: 0
   m_UseHighQualityCurve: 1
   m_RotationCurves: []
@@ -16,8 +16,21 @@ AnimationClip:
   m_PositionCurves: []
   m_ScaleCurves: []
   m_FloatCurves: []
-  m_PPtrCurves: []
-  m_SampleRate: 60
+  m_PPtrCurves:
+  - curve:
+    - time: 0
+      value: {fileID: 21300000, guid: 06e2c0d1a0d617247bcf3a7672b7c00e, type: 3}
+    - time: 0.125
+      value: {fileID: 21300000, guid: 83601012c8c793d4c9fb2267c3ba3714, type: 3}
+    - time: 0.25
+      value: {fileID: 21300000, guid: 708796519cc1b904c8e0533f55aa2735, type: 3}
+    - time: 0.375
+      value: {fileID: 21300000, guid: e8e83e43b06a966488e43cf11f9d8840, type: 3}
+    attribute: m_Sprite
+    path: 
+    classID: 212
+    script: {fileID: 0}
+  m_SampleRate: 8
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -30,7 +43,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1
+    m_StopTime: 0.5
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
