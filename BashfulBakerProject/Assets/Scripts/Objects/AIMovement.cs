@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class AIMovement : MonoBehaviour {
     public float moveSpeed = 5.0f;
+    string pathname;
     GameObject path;
     Vector3 movingTo;
     int i = 1;
 
 	// Use this for initialization
 	void Start () {
-        path = GameObject.Find("GuardPath");
+        pathname = gameObject.name + "Path";
+        path = GameObject.Find(pathname);
         transform.position = path.GetComponent<Path>().pathNodes[0].transform.position; // Agent starts at first node of the path
 	}
 	
