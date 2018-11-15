@@ -61,13 +61,13 @@ public class CharacterController2D : MonoBehaviour {
         //calculate if player is moving
         float xAmount = Mathf.Abs(translateAmount.x);
         float yAmount = Mathf.Abs(translateAmount.y);
-        if(xAmount!=0 && yAmount != 0)
+        if(xAmount==0 && yAmount == 0)
         {
-            info.isMoving = true;
+            info.isMoving = false;
         }
         else
         {
-            info.isMoving = false;
+            info.isMoving = true;
         }
 
         //calculate animation;
