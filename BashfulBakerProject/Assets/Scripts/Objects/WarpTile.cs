@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Collision;
+﻿/*
+using Assets.Scripts.Collision;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,3 +31,4 @@ namespace Assets.Scripts.Objects
 
     }
 }
+*/
