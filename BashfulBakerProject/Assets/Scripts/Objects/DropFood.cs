@@ -14,6 +14,7 @@ namespace Assets.Scripts.Objects
         public Tilemap tilemap;
         CollisionChecker collision;
         public TileBase dessert;
+        public bool hasFoodToDeliver = true;
         public void Start()
         {
             this.gameObject.AddComponent<CollisionChecker>();
@@ -23,7 +24,7 @@ namespace Assets.Scripts.Objects
 
         void Update()
         {
-            if (collision.targetEntered)
+            if (collision.targetEntered  && hasFoodToDeliver)
             {
                 Drop();
             }
