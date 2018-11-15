@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 101329547}
   - component: {fileID: 101329546}
   m_Layer: 0
-  m_Name: Tilemap_Bushes_Front
+  m_Name: Tilemap_BushesTress_FrontOfBuildings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -978,7 +978,7 @@ GameObject:
   - component: {fileID: 197955840}
   - component: {fileID: 197955842}
   m_Layer: 0
-  m_Name: Tilemap_Houses
+  m_Name: Tilemap_Buildings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8896,7 +8896,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 3
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.5, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -9661,7 +9661,7 @@ GameObject:
   - component: {fileID: 1516286027}
   - component: {fileID: 1516286029}
   m_Layer: 0
-  m_Name: Tilemap_Bushes_Back
+  m_Name: Tilemap_BushesTrees_BehindBuildings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12080,7 +12080,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 2
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
