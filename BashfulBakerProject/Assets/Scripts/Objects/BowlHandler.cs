@@ -12,6 +12,8 @@ namespace Assets.Scripts.Objects
 
         private bool playerEntered;
 
+        private bool miniGameFinished;
+
         public enum BowlState
         {
             notMixing,
@@ -21,6 +23,10 @@ namespace Assets.Scripts.Objects
         public BowlState currentState;
 
         public GameObject player;
+
+        public List<Food> allIngredients;
+
+        public GameObject CSGO;
 
 
         // Use this for initialization
@@ -40,11 +46,10 @@ namespace Assets.Scripts.Objects
                     //Player character = GameManager.getPlayer().GetComponent<Player>();
                     if(this.currentState == BowlState.notMixing)
                     {
-                        Debug.Log("MIX THE MIX");
+                        Instantiate(CSGO);
                         //START BOWL MINIGAME...
-                        this.currentState = BowlState.currentlyMixing;
-                        GameManager.getPlayer().GetComponent<CharacterController2D>().info.heldFood = GameManager.getGameManager().getFood("Cookie");
 
+                        
                     }
                     else
                     {
@@ -78,6 +83,14 @@ namespace Assets.Scripts.Objects
             {
                 playerEntered = false;
             }
+
+        }
+
+        private void miniGame()
+        {
+            miniGameFinished = true;
+            this.currentState = BowlState.currentlyMixing;
+            GameManager.getPlayer().GetComponent<CharacterController2D>().info.heldFood = GameManager.getGameManager().getFood("Cookie");
 
         }
     }
