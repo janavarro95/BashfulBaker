@@ -49,7 +49,7 @@ namespace Assets.Scripts.Objects
         {
             GameObject player = GameManager.getPlayer();
             this.gameObject.transform.parent = player.transform;
-            this.gameObject.transform.localPosition = new Vector3(0f, 4.2f, 0);
+            this.gameObject.transform.localPosition = new Vector3(0f, 0.0f, 0);
             player.GetComponent<CharacterController2D>().info.heldFood = this;
             this.gameObject.SetActive(true);
 
