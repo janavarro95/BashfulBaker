@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.Objects;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -25,13 +26,16 @@ namespace Assets.Scripts.UI
         public Sprite centerArrow;
         public SpriteRenderer renderer;
 
+        public List<Food> selectedIngredients;
 
 
         // Use this for initialization
         void Start()
         {
+            GameManager.getPlayer().GetComponent<CharacterController2D>().info.canMove = false;
             arrowDirection = CSGOArrow.Center;
             renderer = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
+            this.selectedIngredients = new List<Food>();
             
         }
 
@@ -81,7 +85,24 @@ namespace Assets.Scripts.UI
             {
                 string ingredientsWheel = getSelectedIngredient();
                 //give ingredient to bowl
+                this.selectedIngredients.Add(GameManager.getGameManager().getFood(ingredientsWheel));
+            }
 
+            if (GameInput.InputControls.BPressed)
+            {
+                GameManager.getPlayer().GetComponent<CharacterController2D>().info.canMove = true;
+                GameObject.Find("BowlHandler").GetComponent<BowlHandler>().currentState = BowlHandler.BowlState.notMixing;
+                Destroy(this.gameObject);
+            }
+
+            if (this.selectedIngredients.Count >= 3)
+            {
+                GameManager.getPlayer().GetComponent<CharacterController2D>().info.heldFood = GameManager.getGameManager().getFood("Cookie");
+                GameManager.getPlayer().GetComponent<CharacterController2D>().info.heldFood.attatchToPlayer();
+
+                GameManager.getPlayer().GetComponent<CharacterController2D>().info.canMove = true;
+                GameObject.Find("BowlHandler").GetComponent<BowlHandler>().currentState = BowlHandler.BowlState.notMixing;
+                Destroy(this.gameObject);
             }
 
         }

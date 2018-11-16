@@ -47,6 +47,7 @@ namespace Assets.Scripts.Objects
                     if(this.currentState == BowlState.notMixing)
                     {
                         Instantiate(CSGO);
+                        this.currentState = BowlState.currentlyMixing;
                         //START BOWL MINIGAME...
 
                         

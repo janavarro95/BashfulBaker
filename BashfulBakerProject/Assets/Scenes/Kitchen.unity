@@ -152,41 +152,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 212282985163511854, guid: 0209e15fa96246f4783cfb41fd120e3e,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 712feec76d42700418cc6b47f0177bc3,
-        type: 3}
-    - target: {fileID: 212282985163511854, guid: 0209e15fa96246f4783cfb41fd120e3e,
-        type: 2}
-      propertyPath: m_Size.x
-      value: 1
+    - target: {fileID: 1457779456217518, guid: 0209e15fa96246f4783cfb41fd120e3e, type: 2}
+      propertyPath: m_Name
+      value: BowlHandler
       objectReference: {fileID: 0}
-    - target: {fileID: 212282985163511854, guid: 0209e15fa96246f4783cfb41fd120e3e,
-        type: 2}
-      propertyPath: m_Size.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 212282985163511854, guid: 0209e15fa96246f4783cfb41fd120e3e,
-        type: 2}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4962162152876512, guid: 0209e15fa96246f4783cfb41fd120e3e, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4962162152876512, guid: 0209e15fa96246f4783cfb41fd120e3e, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -0.26
-      objectReference: {fileID: 0}
-    - target: {fileID: 114181877591629274, guid: 0209e15fa96246f4783cfb41fd120e3e,
-        type: 2}
-      propertyPath: CSGO
-      value: 
-      objectReference: {fileID: 1547403515283148, guid: 0b3a9ead511b84c4fad575aabe3b0930,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0209e15fa96246f4783cfb41fd120e3e, type: 2}
   m_IsPrefabAsset: 0
