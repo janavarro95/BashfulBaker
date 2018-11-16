@@ -118,7 +118,6 @@ public class CharacterController2D : MonoBehaviour {
            direction=getVerticalFacingDirection(movementDirection);
         }
 
-        Debug.Log(direction);
         info.facingDirection = direction;
     }
 
@@ -157,7 +156,6 @@ public class CharacterController2D : MonoBehaviour {
         }
         else
         {
-            Debug.Log("AGGG");
             //is not moving.
             if (info.facingDirection == Player.FacingDirection.Up) this.animator.Play("Baker_UpIdle");
             if (info.facingDirection == Player.FacingDirection.Down) this.animator.Play("Baker_DownIdle");

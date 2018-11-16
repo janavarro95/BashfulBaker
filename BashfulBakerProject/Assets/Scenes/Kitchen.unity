@@ -436,6 +436,29 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: 0}
   moveSpeed: 0
   panType: 0
+--- !u!1 &1793541584 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1964980807919312, guid: 31f00f05051c60d4986194d79a002707,
+    type: 2}
+  m_PrefabInternal: {fileID: 170125681}
+--- !u!95 &1793541585
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1793541584}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: aa5946fd559896b4882a77c4d7db4609, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1862477595
 Prefab:
   m_ObjectHideFlags: 0
