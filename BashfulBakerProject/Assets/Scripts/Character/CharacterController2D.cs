@@ -13,6 +13,8 @@ public class CharacterController2D : MonoBehaviour {
 
 
     public Player info;
+    public Animator animator;
+
 
     /// <summary>
     /// Returns a vector for the player's most recent movement.
@@ -32,9 +34,9 @@ public class CharacterController2D : MonoBehaviour {
         info = new Player();
         info.canMove = true;
         info.facingDirection = Player.FacingDirection.Down;
-
+        this.animator = GetComponent<Animator>();
         //info.heldFood = GameManager.getGameManager().getFood("Cookie");
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -46,7 +48,7 @@ public class CharacterController2D : MonoBehaviour {
     /// </summary>
     private void updateMovement()
     {
-        this.gameObject.transform.position += playerMovement;
+        updateMovement(playerMovement);
     }
 
     /// <summary>
@@ -55,6 +57,21 @@ public class CharacterController2D : MonoBehaviour {
     /// <param name="translateAmount">A vector3 representing the offset to move the player.</param>
     public void updateMovement(Vector3 translateAmount)
     {
+        calculateFacingDirection(translateAmount);
+        //calculate if player is moving
+        float xAmount = Mathf.Abs(translateAmount.x);
+        float yAmount = Mathf.Abs(translateAmount.y);
+        if(xAmount==0 && yAmount == 0)
+        {
+            info.isMoving = false;
+        }
+        else
+        {
+            info.isMoving = true;
+        }
+
+        //calculate animation;
+        this.playAnimation();
         this.gameObject.transform.position += translateAmount;
     }
 
@@ -84,5 +101,67 @@ public class CharacterController2D : MonoBehaviour {
     {
         if (info.canMove == false) return 0.0f;
         return 1.0f;
+    }
+
+    private void calculateFacingDirection(Vector2 movementDirection)
+    {
+        Player.FacingDirection direction = Player.FacingDirection.Down;
+        float xAmount=Mathf.Abs(movementDirection.x);
+        float yAmount = Mathf.Abs(movementDirection.y);
+        if (xAmount > yAmount)
+        {
+            //Greater x influence
+            direction=getHorizontalFacingDirection(movementDirection);
+        }
+        else
+        {
+           direction=getVerticalFacingDirection(movementDirection);
+        }
+
+        info.facingDirection = direction;
+    }
+
+    private Player.FacingDirection getVerticalFacingDirection(Vector2 movement)
+    {
+        if (movement.y <= 0)
+        {
+            return Player.FacingDirection.Down;
+        }
+        else
+        {
+            return Player.FacingDirection.Up;
+        }
+    }
+
+    private Player.FacingDirection getHorizontalFacingDirection(Vector2 movement)
+    {
+        if (movement.x <= 0)
+        {
+            return Player.FacingDirection.Left;
+        }
+        else
+        {
+            return Player.FacingDirection.Right;
+        }
+    }
+
+    private void playAnimation()
+    { 
+        if (info.isMoving)
+        {
+            if (info.facingDirection == Player.FacingDirection.Up) this.animator.Play("Baker_UpWalking") ;
+            if (info.facingDirection == Player.FacingDirection.Down) this.animator.Play("Baker_DownWalking");
+            if (info.facingDirection == Player.FacingDirection.Left) this.animator.Play("Baker_LeftWalking");
+            if (info.facingDirection == Player.FacingDirection.Right) this.animator.Play("Baker_RightWalking");
+        }
+        else
+        {
+            //is not moving.
+            if (info.facingDirection == Player.FacingDirection.Up) this.animator.Play("Baker_UpIdle");
+            if (info.facingDirection == Player.FacingDirection.Down) this.animator.Play("Baker_DownIdle");
+            if (info.facingDirection == Player.FacingDirection.Left) this.animator.Play("Baker_LeftIdle");
+            if (info.facingDirection == Player.FacingDirection.Right) this.animator.Play("Baker_RightIdle");
+        }
+
     }
 }

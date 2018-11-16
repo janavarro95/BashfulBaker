@@ -4,11 +4,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WarpToOutdoors : WarpTile {
 
-    public override void afterWarp()
+namespace Assets.Scripts.Objects.WarpTiles
+{
+
+    public class WarpToOutdoors : WarpTile
     {
-        GameManager.getPlayer().transform.localScale = new Vector3(0.5f, 0.5f, 1);
-        base.afterWarp();
+
+        public override void afterWarp()
+        {
+            GameManager.getPlayer().transform.localScale = new Vector3(0.5f, 0.5f, 1);
+            base.afterWarp();
+        }
     }
+
 }
