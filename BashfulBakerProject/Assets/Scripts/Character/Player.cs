@@ -49,6 +49,7 @@ namespace Assets.Scripts.Character
         }
 
         public bool isMoving;
+        public bool isInBush;
     }
 
 
