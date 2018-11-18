@@ -6,7 +6,7 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Assets.Scripts.Objects
+namespace Assets.Scripts.Objects.WarpTiles
 {
     public class WarpTile:MonoBehaviour
     {

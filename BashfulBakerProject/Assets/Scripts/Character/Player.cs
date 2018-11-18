@@ -47,6 +47,8 @@ namespace Assets.Scripts.Character
                 else return true;
             }
         }
+
+        public bool isMoving;
     }
 
 

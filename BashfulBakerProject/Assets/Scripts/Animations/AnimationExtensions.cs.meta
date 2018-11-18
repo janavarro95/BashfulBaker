@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<< HEAD:BashfulBakerProject/Assets/Scripts/Objects/WarpTile.cs.meta
+guid: 9f5c79d1ca6170c41963dcfc4a20299e
+=======
+guid: 98ab221a6e000fa4992c401c4eadde22
+>>>>>>> 573670c7ccd3f91e9e1feb5583d0c497dedb7a97:BashfulBakerProject/Assets/Scripts/Animations/AnimationExtensions.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
