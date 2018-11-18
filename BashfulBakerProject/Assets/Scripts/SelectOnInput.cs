@@ -28,7 +28,7 @@ namespace Assets.Scripts
             if (InputControls.APressed && buttonSelected == false)
             {
                 //need to find other way besides hard coding scene in
-                SceneManager.LoadScene(2);
+                SceneManager.LoadScene("Kitchen");
                 //eventSystem.SetSelectedGameObject(selectedObject);                //code for when there are more menu buttons
                 //buttonSelected = true;
             }
