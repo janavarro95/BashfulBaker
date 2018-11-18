@@ -203,6 +203,26 @@ Prefab:
       propertyPath: m_SortingOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 61824366125756630, guid: 31f00f05051c60d4986194d79a002707,
+        type: 2}
+      propertyPath: m_Offset.x
+      value: 0.0164361
+      objectReference: {fileID: 0}
+    - target: {fileID: 61824366125756630, guid: 31f00f05051c60d4986194d79a002707,
+        type: 2}
+      propertyPath: m_Offset.y
+      value: 0.02172327
+      objectReference: {fileID: 0}
+    - target: {fileID: 61824366125756630, guid: 31f00f05051c60d4986194d79a002707,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 1.2807779
+      objectReference: {fileID: 0}
+    - target: {fileID: 61824366125756630, guid: 31f00f05051c60d4986194d79a002707,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 2.7955408
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31f00f05051c60d4986194d79a002707, type: 2}
   m_IsPrefabAsset: 0

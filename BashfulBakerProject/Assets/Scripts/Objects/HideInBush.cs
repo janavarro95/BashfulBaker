@@ -37,7 +37,8 @@ namespace Assets.Scripts.Objects
             Vector3Int pos = new Vector3Int();
             pos.Set(-2, -20, 0);
             tilemap.SetTile(pos, null);
-            GameManager.getPlayer().GetComponent<SpriteRenderer>().sprite = bushSprite;
+            //GameManager.getPlayer().GetComponent<SpriteRenderer>().sprite = bushSprite;
+            GameManager.getPlayer().GetComponent<CharacterController2D>().hideInBush(true);
         }
 
         void stopHidingInBush()

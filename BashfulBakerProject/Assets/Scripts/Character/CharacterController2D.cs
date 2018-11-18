@@ -33,6 +33,7 @@ public class CharacterController2D : MonoBehaviour {
     void Start () {
         info = new Player();
         info.canMove = true;
+        info.isInBush = false;
         info.facingDirection = Player.FacingDirection.Down;
         this.animator = GetComponent<Animator>();
         //info.heldFood = GameManager.getGameManager().getFood("Cookie");
@@ -82,6 +83,15 @@ public class CharacterController2D : MonoBehaviour {
     public void setPositon(Vector3 position)
     {
         this.gameObject.transform.position += position;
+    }
+
+    /// <summary>
+    /// Set the inside-bush flag.
+    /// </summary>
+    /// <param name="isInBush">True if the player hid in the bush.</param>
+    public void hideInBush(bool isInBush)
+    {
+        info.isInBush = isInBush;
     }
 
     /// <summary>
@@ -146,7 +156,13 @@ public class CharacterController2D : MonoBehaviour {
     }
 
     private void playAnimation()
-    { 
+    {
+        if (info.isInBush)
+        {
+            this.animator.Play("Bush");
+            return;
+        }
+
         if (info.isMoving)
         {
             if (info.facingDirection == Player.FacingDirection.Up) this.animator.Play("Baker_UpWalking") ;
