@@ -39,6 +39,12 @@ public class CharacterController2D : MonoBehaviour {
         info.facingDirection = Player.FacingDirection.Down;
         this.animator = GetComponent<Animator>();
         this.footstepSound = GetComponent<AudioSource>();
+        if (GameManager.foodToGive != null)
+        {
+            this.info.heldFood =Instantiate(GameManager.foodToGive);
+            GameManager.foodToGive = null;
+            this.info.heldFood.attatchToPlayer();
+        }
         //info.heldFood = GameManager.getGameManager().getFood("Cookie");
     }
 	
