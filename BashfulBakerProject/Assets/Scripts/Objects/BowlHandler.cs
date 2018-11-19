@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts.Objects
 {
@@ -49,7 +50,6 @@ namespace Assets.Scripts.Objects
                         Instantiate(CSGO);
                         this.currentState = BowlState.currentlyMixing;
                         //START BOWL MINIGAME...
-
                         
                     }
                     else

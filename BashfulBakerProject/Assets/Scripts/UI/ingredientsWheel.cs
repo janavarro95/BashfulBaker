@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts.UI
 {
@@ -97,12 +98,12 @@ namespace Assets.Scripts.UI
 
             if (this.selectedIngredients.Count >= 3)
             {
-                GameManager.getPlayer().GetComponent<CharacterController2D>().info.heldFood = GameManager.getGameManager().getFood("Cookie");
-                GameManager.getPlayer().GetComponent<CharacterController2D>().info.heldFood.attatchToPlayer();
-
-                GameManager.getPlayer().GetComponent<CharacterController2D>().info.canMove = true;
-                GameObject.Find("BowlHandler").GetComponent<BowlHandler>().currentState = BowlHandler.BowlState.notMixing;
-                Destroy(this.gameObject);
+                //GameManager.getPlayer().GetComponent<CharacterController2D>().info.heldFood = GameManager.getGameManager().getFood("Cookie");
+                //ameManager.getPlayer().GetComponent<CharacterController2D>().info.heldFood.attatchToPlayer();
+                SceneManager.LoadScene("SampleScene");
+                //GameManager.getPlayer().GetComponent<CharacterController2D>().info.canMove = true;
+                //GameObject.Find("BowlHandler").GetComponent<BowlHandler>().currentState = BowlHandler.BowlState.notMixing;
+                //Destroy(this.gameObject);
             }
 
         }
