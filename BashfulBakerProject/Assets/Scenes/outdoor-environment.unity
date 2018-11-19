@@ -9185,8 +9185,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9254c72b68ec8314e908029c4d643465, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  warpSound: {fileID: 0}
   targetMapName: Kitchen
-  targetPosition: {x: 0, y: 2}
+  targetPosition: {x: 9, y: 0}
 --- !u!1 &859183504
 GameObject:
   m_ObjectHideFlags: 0

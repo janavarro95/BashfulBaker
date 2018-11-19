@@ -2,6 +2,7 @@
 using Assets.Scripts.Character;
 using Assets.Scripts.GameInput;
 using Assets.Scripts.Objects;
+using Assets.Scripts.Timers;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,9 +14,11 @@ public class CharacterController2D : MonoBehaviour {
 
 
     public Player info;
-    public Animator animator;
+    private Animator animator;
+    private AudioSource footstepSound;
 
-
+    private FrameTimer footstepTimer;
+    private Random random;
     /// <summary>
     /// Returns a vector for the player's most recent movement.
     /// </summary>
@@ -35,6 +38,7 @@ public class CharacterController2D : MonoBehaviour {
         info.canMove = true;
         info.facingDirection = Player.FacingDirection.Down;
         this.animator = GetComponent<Animator>();
+        this.footstepSound = GetComponent<AudioSource>();
         //info.heldFood = GameManager.getGameManager().getFood("Cookie");
     }
 	
@@ -68,6 +72,33 @@ public class CharacterController2D : MonoBehaviour {
         else
         {
             info.isMoving = true;
+        }
+
+        if (info.isMoving)
+        {
+            if (this.footstepTimer == null)
+            {
+                this.footstepTimer = new FrameTimer(15, null, false);
+                this.footstepSound.pitch = Random.Range(0.5f, 1f);
+                this.footstepSound.Play();
+            }
+
+            if(this.footstepTimer.finished())
+            {
+                this.footstepSound.pitch = Random.Range(0.5f, 1f);
+                this.footstepSound.Play();
+                this.footstepTimer.lifespanRemaining = 15;
+            }
+            else
+            {
+                this.footstepTimer.tick();
+                Debug.Log(this.footstepTimer.lifespanRemaining);
+            }
+        }
+        else
+        {
+            this.footstepSound.Stop();
+            this.footstepTimer = null;
         }
 
         //calculate animation;

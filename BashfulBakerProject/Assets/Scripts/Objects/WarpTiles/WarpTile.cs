@@ -10,11 +10,14 @@ namespace Assets.Scripts.Objects.WarpTiles
 {
     public class WarpTile:MonoBehaviour
     {
+
+        public AudioSource warpSound;
         CollisionChecker collision;
         public string targetMapName;
         public Vector2 targetPosition;
         public void Start()
         {
+            this.warpSound = GetComponent<AudioSource>();
             this.gameObject.AddComponent<CollisionChecker>();
             this.collision = this.gameObject.GetComponent<CollisionChecker>();
             this.collision.targetTag = "Player";

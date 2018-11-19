@@ -11,10 +11,9 @@ namespace Assets.Scripts.Objects.WarpTiles
 
         public override void afterWarp()
         {
+            this.warpSound.Play();
+            DestroyObject(GameManager.getPlayer());
             GameManager.getPlayer().transform.localScale = new Vector3(2f, 2f, 1);
-            //Destroy(GameObject.FindGameObjectsWithTag("Player").ElementAt(0));
-
-            
             base.afterWarp();
         }
     }
