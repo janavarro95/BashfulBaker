@@ -13,7 +13,7 @@ namespace Assets.Scripts.Character
         /// <summary>
         /// The player's movespeed.
         /// </summary>
-        public float moveSpeed = 0.05f;
+        public float moveSpeed = 0.1f;
 
         /// <summary>
         /// Enum to handle player facing direction.

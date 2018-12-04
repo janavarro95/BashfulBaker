@@ -13,7 +13,10 @@ using UnityEngine;
 public class CharacterController2D : MonoBehaviour {
 
 
+    // public information
     public Player info;
+
+    // private information
     private Animator animator;
     private AudioSource footstepSound;
 
@@ -142,15 +145,16 @@ public class CharacterController2D : MonoBehaviour {
 
     private void calculateFacingDirection(Vector2 movementDirection)
     {
-        Player.FacingDirection direction = Player.FacingDirection.Down;
-        float xAmount=Mathf.Abs(movementDirection.x);
+        //Player.FacingDirection direction = Player.FacingDirection.Up;
+        Player.FacingDirection direction = info.facingDirection;
+        float xAmount = Mathf.Abs(movementDirection.x);
         float yAmount = Mathf.Abs(movementDirection.y);
         if (xAmount > yAmount)
         {
             //Greater x influence
             direction=getHorizontalFacingDirection(movementDirection);
         }
-        else
+        else if (xAmount < yAmount)
         {
            direction=getVerticalFacingDirection(movementDirection);
         }
