@@ -213,6 +213,11 @@ Prefab:
       propertyPath: m_Volume
       value: 0.503
       objectReference: {fileID: 0}
+    - target: {fileID: 114805285678647458, guid: 31f00f05051c60d4986194d79a002707,
+        type: 2}
+      propertyPath: movementSpeed
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 82967425335845474, guid: 31f00f05051c60d4986194d79a002707, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 31f00f05051c60d4986194d79a002707, type: 2}

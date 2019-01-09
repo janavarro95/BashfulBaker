@@ -14,6 +14,10 @@ public class CharacterController2D : MonoBehaviour {
 
 
     public Player info;
+
+
+    public float movementSpeed = 0.5f;
+
     private Animator animator;
     private AudioSource footstepSound;
 
@@ -35,6 +39,7 @@ public class CharacterController2D : MonoBehaviour {
     // Use info for initialization
     void Start () {
         info = new Player();
+        info.controller = this;
         info.canMove = true;
         info.facingDirection = Player.FacingDirection.Down;
         this.animator = GetComponent<Animator>();

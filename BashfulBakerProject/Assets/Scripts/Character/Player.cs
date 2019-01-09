@@ -13,7 +13,13 @@ namespace Assets.Scripts.Character
         /// <summary>
         /// The player's movespeed.
         /// </summary>
-        public float moveSpeed = 0.05f;
+        public float moveSpeed
+        {
+            get
+            {
+                return controller.movementSpeed;
+            }
+        }
 
         /// <summary>
         /// Enum to handle player facing direction.
@@ -37,6 +43,8 @@ namespace Assets.Scripts.Character
         /// </summary>
         public bool canMove;
 
+
+        public CharacterController2D controller;
 
         public bool holdingFood
         {
